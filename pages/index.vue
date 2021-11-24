@@ -34,7 +34,7 @@
           "
         >
           <div class="h-10 leading-none">
-            <p class="font-semibold text-sm">{{ items.name }}</p>
+            <p class="font-semibold text-sm sm:text-lg">{{ items.name }}</p>
             <span
               class="inline-block text-sm h-2 w-2 bg-green-600 rounded-full"
               v-if="items.status === 'Alive'"
