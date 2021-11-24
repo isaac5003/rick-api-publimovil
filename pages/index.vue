@@ -82,7 +82,6 @@ export default {
   fetchOnServer: false,
   data() {
     return {
-      urlImage: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
       dataResult: [],
     };
   },
