@@ -1,18 +1,19 @@
 <template>
-  <div class="bg-gray-700 principal h-full flex justify-center py-8">
+  <div class="flex justify-center p-2 bg-gray-700 h-full sm:h-screen">
     <div
       class="
-        content
-        bg-gray-700 bg-opacity-80
+        principal
         w-11/12
-        h-auto
-        flex flex-col
+        bg-gray-700
+        grid
         gap-4
-        rounded
+        p-4
+        sm:grid-cols-2
+        lg:grid-cols-3 lg:p-8
       "
     >
       <div
-        class="w-full bg-gray-500 h-auto flex flex-row rounded"
+        class="w-full bg-gray-500 h-auto flex flex-row rounded lg:h-48"
         v-for="items of dataResult"
         :key="items.id"
       >
@@ -60,9 +61,11 @@
             </p>
           </div>
 
-          <div class="h-10 leading-none pt-2">
+          <div class="h-12 leading-none pt-2 mb-2">
             <p class="text-xs text-gray-400 font-semibold">First seen in:</p>
-            <p class="text-sm text-gray-200 font-semibold">Pilot</p>
+            <p class="text-xs text-gray-200 font-semibold">
+              {{ items.origin.name }}
+            </p>
           </div>
         </div>
       </div>
@@ -74,10 +77,6 @@ export default {
   fetch() {
     this.$axios.get("/character/1,2,3,7,12,16").then((res) => {
       this.dataResult = res.data;
-      console.log(this.dataResult);
-      console.log(res.data);
-
-      /* this.$axios.get(`${res.data.episode}`) */
     });
   },
   fetchOnServer: false,
